@@ -81,7 +81,7 @@ test.describe('SauceDemo Login', () => {
     await expect(page.getByTestId('login-button')).toBeVisible();
 
       // 8. UI check - error message can be closed
-  test('Close error message', async ({ page }) => {
+  test('Close error message okok', async ({ page }) => {
     await page.getByTestId('login-button').click();
 
     await expect(page.getByTestId('error')).toBeVisible();
