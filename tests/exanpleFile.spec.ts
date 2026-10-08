@@ -74,5 +74,11 @@ test.describe('SauceDemo Login', () => {
 
     await expect(page).toHaveURL(URL);
     await expect(page.getByTestId('login-button')).toBeVisible();
+
+    // 8. Session - back button after logout
+    await page.goBack();
+    await expect(page).toHaveURL(URL);
+    await expect(page.getByTestId('login-button')).toBeVisible();
+  
   });
 });
