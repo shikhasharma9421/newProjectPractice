@@ -79,6 +79,17 @@ test.describe('SauceDemo Login', () => {
     await page.goBack();
     await expect(page).toHaveURL(URL);
     await expect(page.getByTestId('login-button')).toBeVisible();
+
+      // 8. UI check - error message can be closed
+  test('Close error message', async ({ page }) => {
+    await page.getByTestId('login-button').click();
+
+    await expect(page.getByTestId('error')).toBeVisible();
+
+    await page.getByTestId('error-button').click();
+
+    await expect(page.getByTestId('error')).toHaveCount(0);
+  });
   
   });
 });
