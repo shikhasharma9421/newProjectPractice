@@ -63,7 +63,7 @@ test.describe('SauceDemo Login', () => {
   });
 
   // 7. Session - logout
-  test('Logout', async ({ page }) => {
+  test('Logout test', async ({ page }) => {
     await page.getByTestId('username').fill('standard_user');
     await page.getByTestId('password').fill('secret_sauce');
     await page.getByTestId('login-button').click();
