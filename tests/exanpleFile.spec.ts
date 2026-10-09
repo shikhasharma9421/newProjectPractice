@@ -70,7 +70,7 @@ test.describe('SauceDemo Login', () => {
     await expect(page).toHaveURL(/inventory/);
 
     await page.getByRole('button', { name: 'Open Menu' }).click();
-    await page.getByRole('link', { name: 'Logout' }).click();
+    await page.getByTestId('logout-sidebar-link').click();
 
     await expect(page).toHaveURL(URL);
     await expect(page.getByTestId('login-button')).toBeVisible();
@@ -79,9 +79,10 @@ test.describe('SauceDemo Login', () => {
     await page.goBack();
     await expect(page).toHaveURL(URL);
     await expect(page.getByTestId('login-button')).toBeVisible();
+  });
 
-      // 8. UI check - error message can be closed
-  test('Close error message okokokok', async ({ page }) => {
+  // 9. UI check - error message can be closed
+  test('Close error message', async ({ page }) => {
     await page.getByTestId('login-button').click();
 
     await expect(page.getByTestId('error')).toBeVisible();
@@ -89,7 +90,5 @@ test.describe('SauceDemo Login', () => {
     await page.getByTestId('error-button').click();
 
     await expect(page.getByTestId('error')).toHaveCount(0);
-  });
-  
   });
 });
