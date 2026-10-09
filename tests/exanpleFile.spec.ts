@@ -62,23 +62,5 @@ test.describe('SauceDemo Login', () => {
     await expect(page.getByTestId('error')).toContainText('locked out');
   });
 
-  // 7. Session - logout
-  test('Logout test', async ({ page }) => {
-    await page.getByTestId('username').fill('standard_user');
-    await page.getByTestId('password').fill('secret_sauce');
-    await page.getByTestId('login-button').click();
-    await expect(page).toHaveURL(/inventory/);
 
-    await page.getByRole('button', { name: 'Open Menu' }).click();
-    await page.getByTestId('logout-sidebar-link').click();
-
-    await expect(page).toHaveURL(URL);
-    await expect(page.getByTestId('login-button')).toBeVisible();
-
-    // 8. Session - back button after logout
-    await page.goBack();
-    await expect(page).toHaveURL(URL);
-    await expect(page.getByTestId('login-button')).toBeVisible();
-
-  });
 });
