@@ -8,7 +8,7 @@ test.describe('SauceDemo Login', () => {
   });
 
   // 1. Positive
-  test('Valid login', async ({ page }) => {
+  test('Valid login test', async ({ page }) => {
     await page.getByTestId('username').fill('standard_user');
     await page.getByTestId('password').fill('secret_sauce');
     await page.getByTestId('login-button').click();
